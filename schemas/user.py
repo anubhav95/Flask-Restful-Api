@@ -1,7 +1,8 @@
 from ma import ma
+from marshmallow_sqlalchemy import ModelSchema
 from models.user import UserModel
 
-class UserSchema(ma.Schema):
+class UserSchema(ModelSchema):
     class Meta:
         model = UserModel
         load_only=("password",)
