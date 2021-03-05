@@ -16,10 +16,14 @@ class UserModel(db.Model):
     def find_by_id(cls,user_id:int)-> "UserModel":
         return cls.query.filter_by(id=user_id).first()
 
-    def save_to_db()-> None:
+    def save_to_db(self)-> None:
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db()-> None:
+    def delete_from_db(self)-> None:
         db.session.delete(self)
         db.session.commit()
+
+    @classmethod
+    def get_all_user(cls):
+        return cls.query.all()
